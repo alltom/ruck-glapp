@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+
+# for testing inside gem dir
+$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require "glapp"
+require "ruck"
+require "ruck/glapp"
+
+SHREDULER = Ruck::GLApp::GLAppShreduler.new
+
+include GLApp::Helpers
+include Ruck::GLApp::ShredLocal
+Ruck::GLApp::RuckSketch.new(ARGV).show 800, 600, "ruck"
